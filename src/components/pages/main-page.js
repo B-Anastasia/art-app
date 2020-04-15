@@ -6,10 +6,12 @@ const MainPage = () =>{
             <div className='text-box'>
             <blockquote className='main-page__quotation'>
                 <h1>
-                    Art is unquestionably one of the purest and highest elements in human happiness.<br/>
-                    It trains the mind through the eye, and the eye through the mind. <br/>As the sun colors flowers, so does art color life.
+                    Every child is an artist. <br/>
+                    The problem is how to remain an artist once we grow up.
                 </h1>
-                <span className='main-page__quotation--name'>-John Lubbock</span>
+                <span className='main-page__quotation--name'>
+                    &mdash; Pablo Picasso  &mdash;
+                </span>
             </blockquote>
             </div>
         </div>

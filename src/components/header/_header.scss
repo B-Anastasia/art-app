@@ -9,7 +9,8 @@
   padding: 0 12rem 0 12rem;
   position: fixed;
   width: 100%;
-  background-color: rgba($color-white, .8);
+  //background-color: rgba($color-white, .8);
+  background-color: $color-white-grey;
   overflow-y: hidden;
 
   &__logo {
@@ -25,7 +26,6 @@
     }
 
     .first{
-
     background-color: $color-primary-blue-light;
     padding: 3px;
       color: white;
@@ -34,8 +34,6 @@
     .secondary {
       display: inline-block;
       border-radius: 5px;
-      font-family: 'Lato', sans-serif;
-      //padding: 2px;
       font-size: 1.6rem;
       margin-top: 1rem;
       font-weight: 400;
