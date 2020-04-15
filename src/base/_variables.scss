@@ -1,24 +1,25 @@
 // COLORS
 
-$color-primary-dark: #222;
 $color-primary-orange: #ff5c36;
 $color-orange: #e04f11;
 $color-orange-light: #ff6e47;
 $color-white-grey: #fbfbfb;
 $color-white-footer: #f7f7f7;
-$color-grey-footer: #efefef;
-$color-grey-light: #706b73;
+
 $color-grey-light-1: #d3d3d3;
 $color-yellow: #ffef3b;
 $color-yellow-bright: #FCEA0D;
 $color-blue: #5D7E95;
 
-$color-white: #ffffff;
+$color-white: rgba(255, 255, 255, 0.86);
 $color-black: #000;
 
 $color-primary: #DEDEDE;
 $color-primary-blue-light: #02B4D3;
 $color-primary-grey: #707070;
+$color-primary-dark: #353441;
+$color-grey-light-2: #efefef;
+$color-grey-light: #706b73;
 
 
 $border-shadow: 0 .5px 2rem rgba($color-black,.2); //box-shadow
@@ -32,6 +33,8 @@ $magrin-bottom: 2rem;
 $magrin-bottom-xs: 5rem;
 $magrin-bottom-big: 15rem;
 $magrin-bottom-middle: 10rem;
+
+$margin-regular: 2rem 0 2rem 0;
 
 $padding-small: 4rem 0 6rem 0;
 $padding-middle: 2rem 0 8rem 0;

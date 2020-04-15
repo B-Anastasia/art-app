@@ -1,6 +1,8 @@
-@import 'base/fonts';
 @import 'base/variables';
-@import 'base/base';
 @import 'base/mixins';
+@import 'base/fonts';
+@import 'base/base';
 
 @import "components/app/app";
+@import "components/header/header";
+@import "components/pages/pages";

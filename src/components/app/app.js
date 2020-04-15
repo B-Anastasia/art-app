@@ -1,8 +1,14 @@
 import React from "react";
-// import './_app.scss';
+import Header from "../header";
+import {MainPage} from "../pages";
 
 const App = () =>{
-    return <div className='app'>Hello world</div>
+    return (
+        <div>
+            <Header/>
+            <MainPage/>
+        </div>
+    );
 };
 
 export default App;

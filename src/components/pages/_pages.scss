@@ -1,0 +1,48 @@
+.main-page{
+  background-image: url('../../img/white.jpg');
+  //background-image: linear-gradient(
+  //                to right bottom,
+  //                rgba( $color-white , 0.3),
+  //                rgba($color-primary-dark, 0.2)),
+  //                url('../../img/brushes.jpg');
+  background-size: cover;
+  background-position: top;
+  height: 100vh;
+
+    .text-box{
+      padding: 1rem;
+      //background-color: rgba( $color-white , 0.3);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+
+      h1{
+        margin-left: 70px;
+        font-weight: 700;
+      }
+      .main-page__quotation--name{
+        text-align: right;
+        display: block;
+        font-weight: 300;
+      }
+      .main-page__quotation{
+        h1, span{
+          font-family: 'Cinzel', serif;
+          font-size: 2rem;
+          text-transform: lowercase;
+
+        }
+
+      }
+      
+      blockquote::before{
+        content: '\201d';
+        float: left;
+        font-size: 20rem;
+        line-height: .7;
+        opacity: .2;
+      }
+    }
+
+}
