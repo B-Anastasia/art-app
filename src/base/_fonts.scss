@@ -1,13 +1,13 @@
 // Cinzel
 
 @font-face {
-  font-family:'Cinzel';
+  font-family: 'Cinzel';
   src: url('../fonts/Cinzel Bold.eot');
   src: url('../fonts/Cinzel Bold.eot?#iefix') format('embedded-opentype'),
-  url('../fonts/Cinzel Bold.woff2') format('woff2'),
-  url('../fonts/Cinzel Bold.woff') format('woff'),
-  url('../fonts/Cinzel Bold.ttf') format('truetype'),
-  url('../fonts/Cinzel Bold.svg#Cinzel Bold') format('svg');
+    url('../fonts/Cinzel Bold.woff2') format('woff2'),
+    url('../fonts/Cinzel Bold.woff') format('woff'),
+    url('../fonts/Cinzel Bold.ttf') format('truetype'),
+    url('../fonts/Cinzel Bold.svg#Cinzel Bold') format('svg');
   font-weight: 700;
   font-style: normal;
   font-stretch: normal;
@@ -15,13 +15,13 @@
 }
 
 @font-face {
-  font-family:'Cinzel';
+  font-family: 'Cinzel';
   src: url('../fonts/Cinzel Regular.eot');
   src: url('../fonts/Cinzel Regular.eot?#iefix') format('embedded-opentype'),
-  url('../fonts/Cinzel Regular.woff2') format('woff2'),
-  url('../fonts/Cinzel Regular.woff') format('woff'),
-  url('../fonts/Cinzel Regular.ttf') format('truetype'),
-  url('../fonts/Cinzel Regular.svg#Cinzel Regular') format('svg');
+    url('../fonts/Cinzel Regular.woff2') format('woff2'),
+    url('../fonts/Cinzel Regular.woff') format('woff'),
+    url('../fonts/Cinzel Regular.ttf') format('truetype'),
+    url('../fonts/Cinzel Regular.svg#Cinzel Regular') format('svg');
   font-weight: 400;
   font-style: normal;
   font-stretch: normal;
@@ -29,13 +29,13 @@
 }
 
 @font-face {
-  font-family:'Cinzel Black';
+  font-family: 'Cinzel Black';
   src: url('../fonts/Cinzel Black.eot');
   src: url('../fonts/Cinzel Black.eot?#iefix') format('embedded-opentype'),
-  url('../fonts/Cinzel Black.woff2') format('woff2'),
-  url('../fonts/Cinzel Black.woff') format('woff'),
-  url('../fonts/Cinzel Black.ttf') format('truetype'),
-  url('../fonts/Cinzel Black.svg#Cinzel Black') format('svg');
+    url('../fonts/Cinzel Black.woff2') format('woff2'),
+    url('../fonts/Cinzel Black.woff') format('woff'),
+    url('../fonts/Cinzel Black.ttf') format('truetype'),
+    url('../fonts/Cinzel Black.svg#Cinzel Black') format('svg');
   font-weight: 900;
   font-style: normal;
   font-stretch: normal;
@@ -44,15 +44,14 @@
 
 // Lato
 
-
 @font-face {
-  font-family:'Lato';
+  font-family: 'Lato';
   src: url('../fonts/Lato Bold.eot');
   src: url('../fonts/Lato Bold.eot?#iefix') format('embedded-opentype'),
-  url('../fonts/Lato Bold.woff2') format('woff2'),
-  url('../fonts/Lato Bold.woff') format('woff'),
-  url('../fonts/Lato Bold.ttf') format('truetype'),
-  url('../fonts/Lato Bold.svg#Lato Bold') format('svg');
+    url('../fonts/Lato Bold.woff2') format('woff2'),
+    url('../fonts/Lato Bold.woff') format('woff'),
+    url('../fonts/Lato Bold.ttf') format('truetype'),
+    url('../fonts/Lato Bold.svg#Lato Bold') format('svg');
   font-weight: 700;
   font-style: normal;
   font-stretch: normal;
@@ -60,13 +59,13 @@
 }
 
 @font-face {
-  font-family:'Lato';
+  font-family: 'Lato';
   src: url('../fonts/Lato Bold Italic.eot');
   src: url('../fonts/Lato Bold Italic.eot?#iefix') format('embedded-opentype'),
-  url('../fonts/Lato Bold Italic.woff2') format('woff2'),
-  url('../fonts/Lato Bold Italic.woff') format('woff'),
-  url('../fonts/Lato Bold Italic.ttf') format('truetype'),
-  url('../fonts/Lato Bold Italic.svg#Lato Bold Italic') format('svg');
+    url('../fonts/Lato Bold Italic.woff2') format('woff2'),
+    url('../fonts/Lato Bold Italic.woff') format('woff'),
+    url('../fonts/Lato Bold Italic.ttf') format('truetype'),
+    url('../fonts/Lato Bold Italic.svg#Lato Bold Italic') format('svg');
   font-weight: 700;
   font-style: italic;
   font-stretch: normal;
@@ -74,13 +73,13 @@
 }
 
 @font-face {
-  font-family:'Lato';
+  font-family: 'Lato';
   src: url('../fonts/Lato Italic.eot');
   src: url('../fonts/Lato Italic.eot?#iefix') format('embedded-opentype'),
-  url('../fonts/Lato Italic.woff2') format('woff2'),
-  url('../fonts/Lato Italic.woff') format('woff'),
-  url('../fonts/Lato Italic.ttf') format('truetype'),
-  url('../fonts/Lato Italic.svg#Lato Italic') format('svg');
+    url('../fonts/Lato Italic.woff2') format('woff2'),
+    url('../fonts/Lato Italic.woff') format('woff'),
+    url('../fonts/Lato Italic.ttf') format('truetype'),
+    url('../fonts/Lato Italic.svg#Lato Italic') format('svg');
   font-weight: 400;
   font-style: italic;
   font-stretch: normal;
@@ -88,28 +87,27 @@
 }
 
 @font-face {
-  font-family:'Lato';
+  font-family: 'Lato';
   src: url('../fonts/Lato Regular.eot');
   src: url('../fonts/Lato Regular.eot?#iefix') format('embedded-opentype'),
-  url('../fonts/Lato Regular.woff2') format('woff2'),
-  url('../fonts/Lato Regular.woff') format('woff'),
-  url('../fonts/Lato Regular.ttf') format('truetype'),
-  url('../fonts/Lato Regular.svg#Lato Regular') format('svg');
+    url('../fonts/Lato Regular.woff2') format('woff2'),
+    url('../fonts/Lato Regular.woff') format('woff'),
+    url('../fonts/Lato Regular.ttf') format('truetype'),
+    url('../fonts/Lato Regular.svg#Lato Regular') format('svg');
   font-weight: 400;
   font-style: normal;
   font-stretch: normal;
   unicode-range: U+0020-02DC;
 }
 
-
 @font-face {
-  font-family:'Lato Black';
+  font-family: 'Lato Black';
   src: url('../fonts/Lato Black.eot');
   src: url('../fonts/Lato Black.eot?#iefix') format('embedded-opentype'),
-  url('../fonts/Lato Black.woff2') format('woff2'),
-  url('../fonts/Lato Black.woff') format('woff'),
-  url('../fonts/Lato Black.ttf') format('truetype'),
-  url('../fonts/Lato Black.svg#Lato Black') format('svg');
+    url('../fonts/Lato Black.woff2') format('woff2'),
+    url('../fonts/Lato Black.woff') format('woff'),
+    url('../fonts/Lato Black.ttf') format('truetype'),
+    url('../fonts/Lato Black.svg#Lato Black') format('svg');
   font-weight: 900;
   font-style: normal;
   font-stretch: normal;
@@ -117,13 +115,13 @@
 }
 
 @font-face {
-  font-family:'Lato Black';
+  font-family: 'Lato Black';
   src: url('../fonts/Lato Black Italic.eot');
   src: url('../fonts/Lato Black Italic.eot?#iefix') format('embedded-opentype'),
-  url('../fonts/Lato Black Italic.woff2') format('woff2'),
-  url('../fonts/Lato Black Italic.woff') format('woff'),
-  url('../fonts/Lato Black Italic.ttf') format('truetype'),
-  url('../fonts/Lato Black Italic.svg#Lato Black Italic') format('svg');
+    url('../fonts/Lato Black Italic.woff2') format('woff2'),
+    url('../fonts/Lato Black Italic.woff') format('woff'),
+    url('../fonts/Lato Black Italic.ttf') format('truetype'),
+    url('../fonts/Lato Black Italic.svg#Lato Black Italic') format('svg');
   font-weight: 900;
   font-style: italic;
   font-stretch: normal;
@@ -131,13 +129,13 @@
 }
 
 @font-face {
-  font-family:'o';
+  font-family: 'o';
   src: url('../fonts/o Light.eot');
   src: url('../fonts/o Light.eot?#iefix') format('embedded-opentype'),
-  url('../fonts/o Light.woff2') format('woff2'),
-  url('../fonts/o Light.woff') format('woff'),
-  url('../fonts/o Light.ttf') format('truetype'),
-  url('../fonts/o Light.svg#o Light') format('svg');
+    url('../fonts/o Light.woff2') format('woff2'),
+    url('../fonts/o Light.woff') format('woff'),
+    url('../fonts/o Light.ttf') format('truetype'),
+    url('../fonts/o Light.svg#o Light') format('svg');
   font-weight: 300;
   font-style: normal;
   font-stretch: normal;

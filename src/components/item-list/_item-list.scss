@@ -1,0 +1,18 @@
+.list-grid{
+  display: grid;
+
+  &__item{
+    width: 25%;
+    &--image {
+      img{
+        width: 100%;
+      }
+    }
+
+      &--title{
+
+      }
+
+
+  }
+}
