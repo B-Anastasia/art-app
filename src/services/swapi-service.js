@@ -10,28 +10,28 @@ export default class SwapiService {
     return await res.json();
   }
 
-  getWork = async (id) => {
+  getItem = async (id, classification) => {
     const res = await this.getResource(
-      `object/${id}?classification=Drawings&q=totalpageviews:150&fields=images,people,title,objectid,dated,culture,centure&`
+      `object/${id}?classification=${classification}&q=totalpageviews:150&fields=images,people,title,objectid,dated,culture,centure&`
     );
-    return this._transformWork(res);
+    return this._transformItem(res);
   };
-  getAllDrawings = async () => {
+  getAllItems = async (classification) => {
     const res = await this.getResource(
-      `object?classification=Drawings&q=totalpageviews:150&fields=images,people,title,objectid,dated,culture,century&hasimage=1&`
-    );
-    return res.records
-      .filter((el) => el.imagepermissionlevel === 0)
-      .map(this._transformWork);
-  };
-  getAllPaintings = async () => {
-    const res = await this.getResource(
-      `object?classification=Paintings&q=totalpageviews:150&fields=images,people,title,objectid,dated,culture,century&hasimage=1&`
+      `object?classification=${classification}&q=totalpageviews:150&fields=images,people,title,objectid,dated,culture,century&hasimage=1&`
     );
     return res.records
       .filter((el) => el.imagepermissionlevel === 0)
-      .map(this._transformWork);
+      .map(this._transformItem);
   };
+  // getAllPaintings = async () => {
+  //   const res = await this.getResource(
+  //     `object?classification=Paintings&q=totalpageviews:150&fields=images,people,title,objectid,dated,culture,century&hasimage=1&`
+  //   );
+  //   return res.records
+  //     .filter((el) => el.imagepermissionlevel === 0)
+  //     .map(this._transformItem);
+  // };
   // allPeople = async () => {
   //   const res = await this.getResource(
   //     "object?classification=Drawings|Paintings|Photographs&q=totalpageviews:200&"
@@ -61,24 +61,25 @@ export default class SwapiService {
     };
   };
 
-  _transformWork = (work) => {
+  _transformItem = (item) => {
     return {
-      id: work.objectid,
-      title: work.title,
-      date: work.dated,
-      name: work.people ? work.people[0]["name"] : null,
-      // imageUrl: work.images[0].baseimageurl + `?width=280`,
-      imageUrl: work.images.map((el) => el.baseimageurl + `?width=280`),
-      culture: work.culture,
-      dimensions: work.dimensions,
-      division: work.division,
-      publicationsHistory: work.publications
-        ? work.publications.map((el) => el.citation)
+      id: item.objectid,
+      title: item.title,
+      date: item.dated,
+      name: item.people ? item.people[0]["name"] : null,
+      // imageUrl: item.images[0].baseimageurl + `?width=280`,
+      imageUrl: item.images.map((el) => el.baseimageurl + `?width=280`),
+      culture: item.culture,
+      dimensions: item.dimensions,
+      classification: item.classification,
+      division: item.division,
+      publicationsHistory: item.publications
+        ? item.publications.map((el) => el.citation)
         : null,
-      exhibitionHistory: work.exhibitions
-        ? work.exhibitions.map((el) => el.citation)
+      exhibitionHistory: item.exhibitions
+        ? item.exhibitions.map((el) => el.citation)
         : null,
-      text: work.contextualtext ? work.contextualtext : null,
+      text: item.contextualtext ? item.contextualtext : null,
     };
   };
 }

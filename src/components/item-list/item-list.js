@@ -13,7 +13,7 @@ export default class ItemList extends Component {
   };
 
   componentDidMount() {
-    this.swapiService.getAllPaintings().then((res) => {
+    this.swapiService.getAllItems("Drawings").then((res) => {
       console.log(res);
 
       this.setState(res[0]);
