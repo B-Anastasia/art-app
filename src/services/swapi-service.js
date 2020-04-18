@@ -10,13 +10,28 @@ export default class SwapiService {
     return await res.json();
   }
 
-  allDrawings = async () => {
+  getWork = async (id) => {
     const res = await this.getResource(
-      "object?classification=Drawings&q=totalpageviews:150&fields=images,people,title,objectid,dated,culture,centure&"
+      `object/${id}?classification=Drawings&q=totalpageviews:150&fields=images,people,title,objectid,dated,culture,centure&`
     );
-    return res.records;
+    return this._transformWork(res);
   };
-
+  getAllDrawings = async () => {
+    const res = await this.getResource(
+      `object?classification=Drawings&q=totalpageviews:150&fields=images,people,title,objectid,dated,culture,century&hasimage=1&`
+    );
+    return res.records
+      .filter((el) => el.imagepermissionlevel === 0)
+      .map(this._transformWork);
+  };
+  getAllPaintings = async () => {
+    const res = await this.getResource(
+      `object?classification=Paintings&q=totalpageviews:150&fields=images,people,title,objectid,dated,culture,century&hasimage=1&`
+    );
+    return res.records
+      .filter((el) => el.imagepermissionlevel === 0)
+      .map(this._transformWork);
+  };
   // allPeople = async () => {
   //   const res = await this.getResource(
   //     "object?classification=Drawings|Paintings|Photographs&q=totalpageviews:200&"
@@ -46,12 +61,29 @@ export default class SwapiService {
     };
   };
 
-  // _transformDrawing = (drawing) => {
-  //   return {};
-  // };
+  _transformWork = (work) => {
+    return {
+      id: work.objectid,
+      title: work.title,
+      date: work.dated,
+      name: work.people ? work.people[0]["name"] : null,
+      // imageUrl: work.images[0].baseimageurl + `?width=280`,
+      imageUrl: work.images.map((el) => el.baseimageurl + `?width=280`),
+      culture: work.culture,
+      dimensions: work.dimensions,
+      division: work.division,
+      publicationsHistory: work.publications
+        ? work.publications.map((el) => el.citation)
+        : null,
+      exhibitionHistory: work.exhibitions
+        ? work.exhibitions.map((el) => el.citation)
+        : null,
+      text: work.contextualtext ? work.contextualtext : null,
+    };
+  };
 }
 
-const swapi = new SwapiService();
-swapi.allDrawings().then((res) => {
-  console.log(res);
-});
+// const swapi = new SwapiService();
+// swapi.allDrawings().then((res) => {
+//   console.log(res);
+// });

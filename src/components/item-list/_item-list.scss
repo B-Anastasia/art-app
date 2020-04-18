@@ -1,8 +1,16 @@
 .list-grid{
-  display: grid;
-
+  //display: grid;
+  //grid-auto-flow: row;
+  //grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  //grid-gap: 2rem;
+  //align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
   &__item{
     width: 25%;
+    margin: 2rem;
     &--image {
       img{
         width: 100%;
@@ -10,7 +18,18 @@
     }
 
       &--title{
-
+        padding-left: 1rem;
+        padding-top: 1rem;
+        width: 100%;
+        font-size: 1.6rem;
+        span{
+          display: block;
+          font-family: 'o', sans-serif;
+          font-weight: 300;
+          &:last-child{
+            color: $color-primary-grey;
+          }
+        }
       }
 
 
