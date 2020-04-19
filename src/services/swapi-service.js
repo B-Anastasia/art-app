@@ -10,9 +10,9 @@ export default class SwapiService {
     return await res.json();
   }
 
-  getItem = async (id, classification) => {
+  getItem = async (id) => {
     const res = await this.getResource(
-      `object/${id}?classification=${classification}&q=totalpageviews:150&fields=images,people,title,objectid,dated,culture,centure&`
+      `object/${id}?&fields=images,people,title,objectid,dated,culture,centure&`
     );
     return this._transformItem(res);
   };
@@ -24,30 +24,45 @@ export default class SwapiService {
       .filter((el) => el.imagepermissionlevel === 0)
       .map(this._transformItem);
   };
-  // getAllPaintings = async () => {
+
+  // getAllPeople = async () => {
   //   const res = await this.getResource(
-  //     `object?classification=Paintings&q=totalpageviews:150&fields=images,people,title,objectid,dated,culture,century&hasimage=1&`
+  //     "object?classification=Drawings|Paintings|Photographs&q=totalpageviews:150&hasimage=1&"
   //   );
-  //   return res.records
-  //     .filter((el) => el.imagepermissionlevel === 0)
-  //     .map(this._transformItem);
+  //   const r = res.records.map((item) => item["people"]);
+  //   console.log(r);
+  //   return r;
+  //   // .filter((el) => el.people.role === "Artist");
   // };
-  // allPeople = async () => {
-  //   const res = await this.getResource(
-  //     "object?classification=Drawings|Paintings|Photographs&q=totalpageviews:200&"
-  //   );
-  //   const resArr2 = res.records.map((item) => {
-  //     return item["people"];
-  //   });
-  //   const resArr3 = resArr2.map((item) => {
-  //     for (let i = 0; i < item.length; i++) {
-  //       if (item[i].role === "Artist") {
-  //         return item[i];
-  //       }
-  //     }
-  //   });
-  //   return resArr3.map(this._transformPerson);
+
+  getAllPeople = async () => {
+    const res = await this.getResource(
+      "object?classification=Drawings|Paintings|Photographs&q=totalpageviews:150&"
+    );
+    const resArr2 = res.records.map((item) => {
+      return item["people"];
+    });
+    const resArr3 = resArr2.map((item) => {
+      for (let i = 0; i < item.length; i++) {
+        if (item[i].role === "Artist") {
+          return item[i];
+        }
+      }
+    });
+    return resArr3.map(this._transformPerson);
+  };
+
+  // getPerson = async (person) => {
+  //     const res = await this.getResource(
+  //         `object?person=${person}&fields=images,people&hasimage=1&`
+  //     );
+  //     return res.records[0].people.map(this._transformPerson);
   // };
+  getPerson = async (person) => {
+    const res = await this.getResource(`person?q=personid:${person}&`);
+    console.log(res.records[0]);
+    return res.records[0]._transformPerson;
+  };
 
   _transformPerson = (person) => {
     return {

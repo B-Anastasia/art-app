@@ -4,25 +4,23 @@ import SwapiService from "../../services/swapi-service";
 export default class ItemList extends Component {
   swapiService = new SwapiService();
 
-  state = {
-    id: null,
-    title: null,
-    name: null,
-    date: null,
-    imageUrl: null,
-  };
+  state = {};
 
   componentDidMount() {
-    this.swapiService.getAllItems("Drawings").then((res) => {
-      console.log(res);
+    // this.swapiService.getAllItems("Drawings").then((res) => {
+    //   console.log(res);
+    //
+    //   this.setState(res[0]);
+    //   console.log("res:", res);
+    // });
 
-      this.setState(res[0]);
-      console.log("res:", res);
-    });
-
-    // this.swapiService.getDrawing(304069).then((res) => {
+    // this.swapiService.getItem(304069).then((res) => {
     //   console.log(res);
     // });
+    // this.swapiService.getAllPeople().then((res) => {
+    //   console.log(res);
+    // });
+    this.swapiService.getPerson(33266);
   }
 
   render() {
