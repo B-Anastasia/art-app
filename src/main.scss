@@ -2,9 +2,13 @@
 @import 'base/mixins';
 @import 'base/fonts';
 @import 'base/base';
+@import 'base/btn';
 
 @import 'components/app/app';
 @import 'components/header/header';
 @import 'components/pages/pages';
 @import 'components/item-list/item-list';
 @import 'components/spinner/spinner';
+@import 'components/error-indicator/error-indicator';
+@import 'components/item-details/item-details';
+@import 'components/details/details';

@@ -16,9 +16,10 @@ export default class SwapiService {
     );
     return this._transformItem(res);
   };
+
   getAllItems = async (classification) => {
     const res = await this.getResource(
-      `object?classification=${classification}&q=totalpageviews:150&fields=images,people,title,objectid,dated,culture,century&hasimage=1&`
+      `object?classification=${classification}&q=totalpageviews:100&hasimage=1&fields=images,title,objectid,dated,people&`
     );
     return res.records
       .filter((el) => el.imagepermissionlevel === 0)
@@ -42,6 +43,7 @@ export default class SwapiService {
     const resArr2 = res.records.map((item) => {
       return item["people"];
     });
+
     const resArr3 = resArr2.map((item) => {
       for (let i = 0; i < item.length; i++) {
         if (item[i].role === "Artist") {
@@ -49,6 +51,7 @@ export default class SwapiService {
         }
       }
     });
+    console.log(resArr3.map(this._transformPerson));
     return resArr3.map(this._transformPerson);
   };
 
@@ -60,7 +63,7 @@ export default class SwapiService {
   // };
   getPerson = async (person) => {
     const res = await this.getResource(`person?q=personid:${person}&`);
-    console.log(res.records[0]);
+    // console.log(res.records[0]);
     return res.records[0]._transformPerson;
   };
 
@@ -82,8 +85,7 @@ export default class SwapiService {
       title: item.title,
       date: item.dated,
       name: item.people ? item.people[0]["name"] : null,
-      // imageUrl: item.images[0].baseimageurl + `?width=280`,
-      imageUrl: item.images.map((el) => el.baseimageurl + `?width=280`),
+      imageUrl: item.images.map((el) => el.baseimageurl),
       culture: item.culture,
       dimensions: item.dimensions,
       classification: item.classification,
@@ -91,10 +93,12 @@ export default class SwapiService {
       publicationsHistory: item.publications
         ? item.publications.map((el) => el.citation)
         : null,
-      exhibitionHistory: item.exhibitions
+      exhibitionsHistory: item.exhibitions
         ? item.exhibitions.map((el) => el.citation)
         : null,
-      text: item.contextualtext ? item.contextualtext : null,
+      text: item.contextualtext
+        ? item.contextualtext.map((el) => el.text)
+        : null,
     };
   };
 }
