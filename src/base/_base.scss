@@ -36,6 +36,14 @@ body {
   width: 80vw;
   padding-top: 10rem;
   margin: 0 auto;
+  @include respond(tab-port){
+  width: 90vw;
+}
+  @include respond(phone){
+    width: 95vw;
+  }
+
+
 }
 
 @include link-outline-none;

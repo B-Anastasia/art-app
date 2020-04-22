@@ -1,12 +1,24 @@
-.list-grid {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-around;
+.item-list {
+  li {
+    display: inline-block;
+    @include respond(phone){
+      width: 100%;
+    }
+  }
+   & ul{
+     display: flex;
+     flex-wrap: wrap;
+     align-items: center;
+     justify-content: space-around;
+   }
+
+
   &__item {
+
     width: 25%;
     margin: 2rem;
     &--image {
+      cursor: pointer;
       img {
         width: 100%;
       }

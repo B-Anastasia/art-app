@@ -14,6 +14,14 @@
         padding-top: 2rem;
         width: auto;
         height: 80vh;
+        @include respond(tab-port){
+          width: 90%;
+          height: auto;
+        }
+        @include respond(phone){
+          width: 95vw;
+          height: auto;
+        }
       }
     }
 
@@ -41,10 +49,17 @@
     grid-template-columns: min-content 1fr;
     row-gap: 1.5rem;
     width: 80%;
+    @include respond(tab-port){
+      width: 90%;
+    }
+
 
     dt {
       padding: 0 1rem 1rem 2rem;
       border-bottom: $border-bottom;
+      @include respond(tab-port){
+        padding: 0 1rem 1rem 1rem;
+      }
     }
 
     dd {

@@ -15,6 +15,7 @@ export default class App extends Component {
   };
 
   onItemSelected = (itemId) => {
+    console.log(itemId);
     this.setState({
       itemId: itemId,
     });
@@ -30,6 +31,13 @@ export default class App extends Component {
             <Switch>
               <Route exact path="/" component={MainPage} />
               <Route exact path="/drawings/" component={DrawingPage} />
+              <Route
+                path="/drawings/:id"
+                render={({ match }) => {
+                  const { id } = match.params;
+                  return <ItemDetails itemId={id} getData={getItem} />;
+                }}
+              />
               {/*<DrawingsList onItemSelected={this.onItemSelected} />*/}
               {/*</Route>*/}
               <Route exact path="/photographs/">
