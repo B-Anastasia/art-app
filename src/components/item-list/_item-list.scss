@@ -1,32 +1,30 @@
-.list-grid{
+.list-grid {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-around;
-  &__item{
+  &__item {
     width: 25%;
     margin: 2rem;
     &--image {
-      img{
+      img {
         width: 100%;
       }
     }
 
-      &--title{
-        padding-left: 1rem;
-        padding-top: 1rem;
-        width: 100%;
-        font-size: 1.6rem;
-        span{
-          display: block;
-          font-family: 'o', sans-serif;
-          font-weight: 300;
-          &:last-child{
-            color: $color-primary-grey;
-          }
+    &--title {
+      padding-left: 1rem;
+      padding-top: 1rem;
+      width: 100%;
+      font-size: 1.6rem;
+      span {
+        display: block;
+        font-family: "o", sans-serif;
+        font-weight: 300;
+        &:last-child {
+          color: $color-primary-grey;
         }
       }
-
-
+    }
   }
 }

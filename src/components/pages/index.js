@@ -1,3 +1,4 @@
-import MainPage from "./main-page";
+import MainPage from "./main-page/main-page";
+import DrawingPage from "./drawings-page";
 
-export { MainPage };
+export { MainPage, DrawingPage };
