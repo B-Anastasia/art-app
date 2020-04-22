@@ -1,4 +1,4 @@
-const ItemDetails = () => {};
-const PersonDetails = () => {};
-
-export { ItemDetails, PersonDetails };
+// const ItemDetails = () => {};
+// const PersonDetails = () => {};
+//
+// export { ItemDetails, PersonDetails };

@@ -40,7 +40,7 @@ const withData = (View, getData, classification) => {
       if (error) {
         return <ErrorIndicator />;
       }
-      console.log(this.props);
+
       return (
         <ErrorBoundry>
           <View {...this.props} data={data} />

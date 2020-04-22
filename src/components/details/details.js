@@ -1,4 +1,5 @@
 import React from "react";
+
 const Details = ({ data }) => {
   const {
     title,
@@ -7,34 +8,32 @@ const Details = ({ data }) => {
     culture,
     dimensions,
     division,
-    publicationsHistory,
-    exhibitionsHistory,
+    publications,
+    exhibitions,
     text,
     imageUrl,
   } = data;
 
-  const exhibitions = exhibitionsHistory
-    ? exhibitionsHistory.map((el, i) => {
-        return <dd key={i}>{el}</dd>;
-      })
-    : null;
+  let getDataTag = (property) => {
+    return property
+      ? property.map((el) => {
+          const elText = { __html: el };
+          const keyUn = Math.floor(Math.random() * (60000 - 50)) + 50;
+          return <div dangerouslySetInnerHTML={elText} key={keyUn} />;
+        })
+      : null;
+  };
 
-  const publications = publicationsHistory
-    ? publicationsHistory.map((el, i) => {
-        return <dd key={i}>{el}</dd>;
-      })
-    : null;
+  const exhibitionsData = getDataTag(exhibitions);
 
-  const textItem = text
-    ? text.map((el, i) => {
-        return <dd key={i}>{el}</dd>;
-      })
-    : null;
+  const publicationsData = getDataTag(publications);
+
+  const textData = getDataTag(text);
 
   const images = imageUrl.map((el, i) => {
     if (i === 0) {
       return (
-        <div className="main">
+        <div className="main" key={i}>
           {/*<img src={imageUrl[i]} alt="art" />*/}
           <a data-fancybox="gallery" href={imageUrl[i]}>
             <img src={imageUrl[i]} alt="art" />
@@ -65,11 +64,11 @@ const Details = ({ data }) => {
         <dt>Division</dt>
         <dd>{division}</dd>
         <dt>Publications History</dt>
-        <dd>{publications}</dd>
+        <dd>{publicationsData}</dd>
         <dt>Exhibitions History</dt>
-        <dd>{exhibitions}</dd>
+        <dd>{exhibitionsData}</dd>
         <dt>Text</dt>
-        <dd>{textItem}</dd>
+        <dd>{textData}</dd>
       </dl>
     </div>
   );

@@ -90,10 +90,10 @@ export default class SwapiService {
       dimensions: item.dimensions,
       classification: item.classification,
       division: item.division,
-      publicationsHistory: item.publications
+      publications: item.publications
         ? item.publications.map((el) => el.citation)
         : null,
-      exhibitionsHistory: item.exhibitions
+      exhibitions: item.exhibitions
         ? item.exhibitions.map((el) => el.citation)
         : null,
       text: item.contextualtext
