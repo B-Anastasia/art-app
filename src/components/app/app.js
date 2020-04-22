@@ -22,7 +22,11 @@ export default class App extends Component {
   };
 
   render() {
-    const { getItem } = this.swapiService;
+    const { getItem, getAllPeople } = this.swapiService;
+    getAllPeople().then((res) => {
+      console.log(res);
+    });
+
     return (
       <ErrorBoundry>
         <Router>

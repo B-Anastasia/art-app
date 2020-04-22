@@ -26,15 +26,12 @@ export default class SwapiService {
       .map(this._transformItem);
   };
 
-  // getAllPeople = async () => {
-  //   const res = await this.getResource(
-  //     "object?classification=Drawings|Paintings|Photographs&q=totalpageviews:150&hasimage=1&"
-  //   );
-  //   const r = res.records.map((item) => item["people"]);
-  //   console.log(r);
-  //   return r;
-  //   // .filter((el) => el.people.role === "Artist");
-  // };
+  getPersonItems = async (personId) => {
+    const res = await this.getResource(
+      `object?person=${personId}&fields=images,objectid,title&hasimage=1&`
+    );
+    return res.records.map(this._transformPersonItem);
+  };
 
   getAllPeople = async () => {
     const res = await this.getResource(
@@ -55,27 +52,28 @@ export default class SwapiService {
     return resArr3.map(this._transformPerson);
   };
 
-  // getPerson = async (person) => {
-  //     const res = await this.getResource(
-  //         `object?person=${person}&fields=images,people&hasimage=1&`
-  //     );
-  //     return res.records[0].people.map(this._transformPerson);
-  // };
-  getPerson = async (person) => {
-    const res = await this.getResource(`person?q=personid:${person}&`);
-    // console.log(res.records[0]);
-    return res.records[0]._transformPerson;
+  getPerson = async (personId) => {
+    const res = await this.getResource(`person?q=personid:${personId}&`);
+    return this._transformPerson(res.records[0]);
   };
 
   _transformPerson = (person) => {
     return {
-      id: person.personid,
-      name: person.name,
+      personId: person.personid,
+      name: person.displayname,
       gender: person.gender,
       culture: person.culture,
-      displayDate: person.displaydate,
       birthPlace: person.birthplace,
+      displayDate: person.displaydate,
       deathPlace: person.deathplace,
+    };
+  };
+
+  _transformPersonItem = (item) => {
+    return {
+      id: item.objectid,
+      title: item.title,
+      imageUrl: item.images[0].baseimageurl,
     };
   };
 
