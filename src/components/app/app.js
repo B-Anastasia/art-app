@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import Header from "../header";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ItemDetails from "../item-details";
 import SwapiService from "../../services/swapi-service";
 import ErrorBoundry from "../error-boundry";
 import { DrawingsList } from "../art-components";
+import { MainPage } from "../pages";
+import ErrorIndicator from "../error-indicator";
 
 export default class App extends Component {
   swapiService = new SwapiService();
@@ -26,8 +28,20 @@ export default class App extends Component {
         <Router>
           <div>
             <Header />
+            <Switch>
+              <Route exact path="/" component={MainPage} />
+              <Route exact path="/drawings/:id">
+                <DrawingsList onItemSelected={this.onItemSelected} />
+              </Route>
+              <Route exact path="/photographs/:id">
+                <DrawingsList onItemSelected={this.onItemSelected} />
+              </Route>
+              <Route exact path="/paintings/:id">
+                <DrawingsList onItemSelected={this.onItemSelected} />
+              </Route>
+            </Switch>
             <ItemDetails itemId={this.state.itemId} getData={getItem} />
-            <DrawingsList onItemSelected={this.onItemSelected} />
+            <ErrorIndicator />
           </div>
         </Router>
       </ErrorBoundry>

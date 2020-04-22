@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ErrorIndicator = () => {
   return (
@@ -7,7 +8,9 @@ const ErrorIndicator = () => {
       {/*<img src={icon} />*/}
       <span>Looks like something went wrong on our end.</span>
       <span>Head back to the Art Lives Forever Homepage.</span>
-      <button className="btn draw-border">Go Back</button>
+      <Link className="btn draw-border outline-none" to="/">
+        Go Back
+      </Link>
     </div>
   );
 };

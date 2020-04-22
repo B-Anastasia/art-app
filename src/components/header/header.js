@@ -1,42 +1,43 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
     <div className="header">
       <div className="header__logo">
-        <a href="/#">
+        <Link to="/">
           <h2>
             <span className="first">Art lives</span>
             <span className="secondary">forever</span>
           </h2>
-        </a>
+        </Link>
       </div>
       <div className="header__menu">
         <ul className="header__menu--list">
           <li className="header__menu--item">
-            <a className="header__menu--link un" href="/">
+            <Link to="/" className="header__menu--link un">
               Main
-            </a>
+            </Link>
           </li>
           <li className="header__menu--item">
-            <a className="header__menu--link un" href="/">
+            <Link to="/drawings" className="header__menu--link un">
               Drawings
-            </a>
+            </Link>
           </li>
           <li className="header__menu--item">
-            <a className="header__menu--link un" href="/">
+            <Link to="/paintings" className="header__menu--link un">
               Paintings
-            </a>
+            </Link>
           </li>
           <li className="header__menu--item">
-            <a className="header__menu--link un" href="/">
+            <Link to="/photographs" className="header__menu--link un">
               Photographs
-            </a>
+            </Link>
           </li>
           <li className="header__menu--item">
-            <a className="header__menu--link un" href="/">
+            <Link to="/people" className="header__menu--link un">
               People
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

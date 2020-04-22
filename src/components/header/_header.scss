@@ -40,6 +40,7 @@
     }
   }
 
+
   &__menu {
     &--list {
       display: flex;
@@ -68,21 +69,32 @@
       margin-right: 2rem;
     }
   }
+
+  a {
+    &:hover,
+    &:active,
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .un {
+    display: inline-block;
+
+    &:hover:after {
+      width: 100%;
+    }
+
+    &:after {
+      content: '';
+      width: 0;
+      height: 1px;
+      display: block;
+      background: $color-primary-blue-light;
+      transition: 300ms;
+    }
+  }
 }
 
-.un {
-  display: inline-block;
-}
 
-.un:after {
-  content: '';
-  width: 0;
-  height: 1px;
-  display: block;
-  background: $color-primary-blue-light;
-  transition: 300ms;
-}
 
-.un:hover:after {
-  width: 100%;
-}
