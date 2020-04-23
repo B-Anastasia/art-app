@@ -47,6 +47,7 @@ const Details = ({ data }) => {
       </a>
     );
   });
+
   return (
     <div className="item container">
       <div className="item__images">{images}</div>

@@ -3,7 +3,7 @@ import Spinner from "../spinner";
 import ErrorIndicator from "../error-indicator";
 import ErrorBoundry from "../error-boundry";
 
-const withData = (View, getData, classification) => {
+const withData = (View, getData, property) => {
   return class extends Component {
     //created new class without name => returned new Component with method render()
     state = {
@@ -18,7 +18,7 @@ const withData = (View, getData, classification) => {
 
     updateList = () => {
       this.setState({ loading: true });
-      getData(classification)
+      getData(property)
         .then((data) => {
           this.setState({ data, loading: false, error: false });
         })

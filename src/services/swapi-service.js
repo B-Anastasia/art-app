@@ -48,7 +48,6 @@ export default class SwapiService {
         }
       }
     });
-    console.log(resArr3.map(this._transformPerson));
     return resArr3.map(this._transformPerson);
   };
 
@@ -59,7 +58,7 @@ export default class SwapiService {
 
   _transformPerson = (person) => {
     return {
-      personId: person.personid,
+      id: person.personid,
       name: person.displayname,
       gender: person.gender,
       culture: person.culture,

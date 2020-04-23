@@ -1,2 +1,3 @@
 import withData from "./with-data";
-export { withData };
+import withChildFunction from "./with-child-function";
+export { withData, withChildFunction };
