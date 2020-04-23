@@ -1,12 +1,14 @@
 import React, { Component } from "react";
-// import SwapiService from "../../../services/swapi-service";
+import SwapiService from "../../../services/swapi-service";
+import PersonDetails from "./person-details/person-details";
+import PersonImages from "./person-images/person-images";
 
 export default class Pesron extends Component {
   state = {
     data: null,
     images: null,
   };
-  // swapiService = new SwapiService();
+  swapiService = new SwapiService();
 
   componentDidMount() {
     this.updatePerson();
@@ -30,10 +32,11 @@ export default class Pesron extends Component {
   }
 
   render() {
+    const { data, images } = this.state;
     return (
       <div className="people">
-        <div>Details</div>
-        <div>Images</div>
+        <PersonDetails data={data} />
+        <PersonImages images={images} />
       </div>
     );
   }

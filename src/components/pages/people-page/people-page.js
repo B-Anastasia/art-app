@@ -4,6 +4,10 @@ import { useHistory } from "react-router-dom";
 
 const PeoplePage = () => {
   const history = useHistory();
-  return <PeopleList onItemSelected={(id) => history.push(`${id}`)} />;
+  return (
+    <div className="people-page">
+      <PeopleList onItemSelected={(id) => history.push(`${id}`)} />
+    </div>
+  );
 };
 export default PeoplePage;

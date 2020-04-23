@@ -22,7 +22,7 @@ export default class App extends Component {
   // };
 
   render() {
-    const { getItem } = this.swapiService;
+    const { getItem, getPerson } = this.swapiService;
     return (
       <ErrorBoundry>
         <Router>
@@ -30,9 +30,10 @@ export default class App extends Component {
             <Header />
             <Switch>
               <Route exact path="/" component={MainPage} />
+
               <Route exact path="/drawings/" component={DrawingPage} />
               {/*<DrawingsList onItemSelected={this.onItemSelected} />*/}
-              {/*</Route>*/}
+
               <Route
                 path="/drawings/:id"
                 render={({ match }) => {
@@ -44,11 +45,17 @@ export default class App extends Component {
               <Route exact path="/photographs/">
                 <PhotographsList onItemSelected={this.onItemSelected} />
               </Route>
+
               <Route exact path="/paintings/">
                 <PaintingsList onItemSelected={this.onItemSelected} />
               </Route>
-              <Route exact path="/people/" component={PeoplePage} />
-              {/*<ItemDetails itemId={this.state.itemId} getData={getItem} />*/}
+
+              <Route
+                exact
+                path="/people/"
+                component={PeoplePage}
+                onItemSelected={this.onItemSelected}
+              />
             </Switch>
           </div>
         </Router>

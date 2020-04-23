@@ -26,7 +26,7 @@ const renderListItems = ({ title, name, date, imageUrl }) => (
 
 const renderListPeople = ({ name, culture, displayDate }) => (
   <div>
-    <span>{name} </span>
+    <h4>{name} </h4>
     <div>
       ( {culture}, {displayDate} )
     </div>
