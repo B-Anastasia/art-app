@@ -73,6 +73,7 @@ export default class SwapiService {
       id: item.objectid,
       title: item.title,
       imageUrl: item.images[0].baseimageurl,
+      date: item.dated,
     };
   };
 

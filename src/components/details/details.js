@@ -42,7 +42,7 @@ const Details = ({ data }) => {
       );
     }
     return (
-      <a data-fancybox="gallery" href={imageUrl[i]}>
+      <a data-fancybox="gallery" href={imageUrl[i]} key={i}>
         <img src={imageUrl[i] + `?width=280`} alt="art" />
       </a>
     );

@@ -20,6 +20,7 @@ const withData = (View, getData, property) => {
       this.setState({ loading: true });
       getData(property)
         .then((data) => {
+          console.log(data);
           this.setState({ data, loading: false, error: false });
         })
         .catch(this.onError);
