@@ -18,9 +18,9 @@ export default class SwapiService {
     return this._transformItem(res);
   };
 
-  getAllItems = async (classification) => {
+  getAllItems = async (classification, from, size, page) => {
     const res = await this.getResource(
-      `object?classification=${classification}&sort=rank&sortorder=asc&hasimage=1&fields=images,title,objectid,dated,people&from=0&size=30`
+      `object?classification=${classification}&sort=rank&sortorder=asc&hasimage=1&fields=images,title,objectid,dated,people&from=${from}&size=${size}&page=${page}`
       // `object?classification=Drawings&sort=rank&sortorder=asc&from=78&size=30&page=5`
     );
     return res.records
