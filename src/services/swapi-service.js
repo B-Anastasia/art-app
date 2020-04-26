@@ -1,6 +1,7 @@
 export default class SwapiService {
   _apiBase = "https://api.harvardartmuseums.org/";
-  _apiKEY = "apikey=65582c50-731b-11ea-ba77-8b81ecbc6885";
+  _apiKEY = "&apikey=65582c50-731b-11ea-ba77-8b81ecbc6885";
+  // _apiKEY = "apikey=67d9edc0-e6a3-11e3-9798-57275476509a";
 
   async getResource(url) {
     const res = await fetch(`${this._apiBase}${url}${this._apiKEY}`);
@@ -12,14 +13,15 @@ export default class SwapiService {
 
   getItem = async (id) => {
     const res = await this.getResource(
-      `object/${id}?&fields=images,people,title,objectid,dated,culture,centure&`
+      `object/${id}?&fields=images,people,title,objectid,dated,culture,centure`
     );
     return this._transformItem(res);
   };
 
   getAllItems = async (classification) => {
     const res = await this.getResource(
-      `object?classification=${classification}&q=totalpageviews:100&hasimage=1&fields=images,title,objectid,dated,people&`
+      `object?classification=${classification}&sort=rank&sortorder=asc&hasimage=1&fields=images,title,objectid,dated,people&from=0&size=30`
+      // `object?classification=Drawings&sort=rank&sortorder=asc&from=78&size=30&page=5`
     );
     return res.records
       .filter((el) => el.imagepermissionlevel === 0)
@@ -28,14 +30,14 @@ export default class SwapiService {
 
   getPersonItems = async (personId) => {
     const res = await this.getResource(
-      `object?person=${personId}&fields=images,objectid,title&hasimage=1&`
+      `object?person=${personId}&fields=images,objectid,title&hasimage=1`
     );
     return res.records.map(this._transformPersonItem);
   };
 
   getAllPeople = async () => {
     const res = await this.getResource(
-      "object?classification=Drawings|Paintings|Photographs&q=totalpageviews:150&"
+      "object?classification=Drawings|Paintings|Photographs&q=totalpageviews:150"
     );
     const resArr2 = res.records.map((item) => {
       return item["people"];
@@ -52,7 +54,7 @@ export default class SwapiService {
   };
 
   getPerson = async (personId) => {
-    const res = await this.getResource(`person?q=personid:${personId}&`);
+    const res = await this.getResource(`person?q=personid:${personId}`);
     return this._transformPerson(res.records[0]);
   };
 
