@@ -5,8 +5,8 @@ const Header = () => {
   return (
     <div className="header">
       <HeaderLogo />
-      <HeaderMenu />
       <ToggleMenu />
+      <HeaderMenu />
     </div>
   );
 };

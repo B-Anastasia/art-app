@@ -12,6 +12,9 @@
   background-color: $color-white-grey;
   overflow-y: hidden;
   z-index: 20;
+  @include respond(tab-port){
+      padding: 0 4rem 0 4rem;
+    }
 
   a {
     &:hover,
@@ -37,7 +40,20 @@
       transition: 300ms;
     }
   }
-}
+
+  @include respond(tab-port){
+    .header{
+      padding: 0 4rem 0 4rem;
+    }
+    .header__menu{
+      display: none;
+    }
+    .toggle-menu__button{
+      display: block;
+    }
+  }
+
+  }
 
 
 
