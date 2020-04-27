@@ -11,16 +11,19 @@
   width: 100%;
   background-color: $color-white-grey;
   overflow-y: hidden;
-  z-index: 20;
-  @include respond(tab-port){
-      padding: 0 4rem 0 4rem;
-    }
+  @include respond(tab-port) {
+    padding: 0 4rem 0 4rem;
+  }
 
   a {
     &:hover,
     &:active,
     &:focus {
       outline: none;
+      @include respond(tab-port){
+
+      color: $color-primary-dark;
+      }
     }
   }
 
@@ -32,28 +35,65 @@
     }
 
     &:after {
-      content: '';
+      content: "";
       width: 0;
       height: 1px;
       display: block;
       background: $color-primary-blue-light;
       transition: 300ms;
+      @include respond(tab-port){
+        background: $color-primary-dark;
+      }
     }
   }
+  @include respond(tab-port) {
+    padding: 0 4rem 0 4rem;
+    position: fixed;
 
-  @include respond(tab-port){
-    .header{
-      padding: 0 4rem 0 4rem;
+    &__logo {
+      padding-top: 2rem;
     }
-    .header__menu{
-      display: none;
+    .hide-menu {
+      top: -10rem;
+      opacity: 0;
+      transition: all 2s linear;
+      @include respond(phone) {
+        top: 10rem;
+        transform: translateX(100%);
+      }
     }
-    .toggle-menu__button{
+
+    &__menu {
+      background-color: rgba($color-primary-blue-light, 1);
+      width: 100%;
+      position: fixed;
+      right: 0;
+      height: 8rem;
+      transition: all 1s linear;
+      top: 10rem;
+
+      @include respond(phone) {
+        width: 25rem;
+        height: 100vh;
+      }
+
+      &--list {
+        height: 100%;
+        justify-content: space-around;
+        align-items: center;
+        @include respond(phone) {
+          flex-direction: column;
+          height: 80%;
+        }
+        a {
+          font-family: "Cinzel", serif;
+          font-weight: 400;
+          color: white;
+        }
+      }
+    }
+    .toggle-menu__button {
       display: block;
     }
   }
-
-  }
-
-
-
+}
