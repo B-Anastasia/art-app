@@ -9,66 +9,9 @@
   padding: 0 12rem 0 12rem;
   position: fixed;
   width: 100%;
-  //background-color: rgba($color-white, .8);
   background-color: $color-white-grey;
   overflow-y: hidden;
-
-  &__logo {
-    width: 15rem;
-    text-align: center;
-    text-transform: uppercase;
-    line-height: 1;
-
-    a {
-      text-decoration: none;
-      color: $color-primary-dark;
-      font-family: 'Cinzel', serif;
-    }
-
-    .first {
-      background-color: $color-primary-blue-light;
-      padding: 3px;
-      color: white;
-    }
-
-    .secondary {
-      display: inline-block;
-      border-radius: 5px;
-      font-size: 1.6rem;
-      margin-top: 1rem;
-      font-weight: 400;
-    }
-  }
-
-
-  &__menu {
-    &--list {
-      display: flex;
-      list-style: none;
-      justify-content: space-between;
-    }
-
-    &--item {
-    }
-
-    &--link {
-      color: $color-grey-light;
-      font-family: 'o', sans-serif;
-      font-weight: 300;
-      text-transform: uppercase;
-      text-decoration: none;
-      transition: 300ms;
-
-      &:hover,
-      &:active {
-        color: $color-primary-blue-light;
-      }
-    }
-
-    &--item:not(:last-child) {
-      margin-right: 2rem;
-    }
-  }
+  z-index: 20;
 
   a {
     &:hover,

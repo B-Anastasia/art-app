@@ -1,0 +1,26 @@
+.header__logo {
+  width: 15rem;
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 1;
+
+  a {
+    text-decoration: none;
+    color: $color-primary-dark;
+    font-family: 'Cinzel', serif;
+  }
+
+  .first {
+    background-color: $color-primary-blue-light;
+    padding: 3px;
+    color: white;
+  }
+
+  .secondary {
+    display: inline-block;
+    border-radius: 5px;
+    font-size: 1.6rem;
+    margin-top: 1rem;
+    font-weight: 400;
+  }
+}

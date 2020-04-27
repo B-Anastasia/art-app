@@ -1,0 +1,14 @@
+.toggle-menu{
+  height: $header-height;
+  position: relative;
+  &__button{
+    @include posCenter;
+    cursor: pointer;
+  }
+
+  &__line{
+    height: .7rem;
+    width: 2rem;
+    border-bottom: 2px solid $color-primary-dark;
+  }
+}

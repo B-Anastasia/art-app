@@ -1,0 +1,37 @@
+.header__menu {
+  &--list {
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+  }
+
+
+
+  &--item {
+  }
+
+  &--link {
+    color: $color-grey-light;
+    font-family: 'o', sans-serif;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: 300ms;
+
+    &:hover,
+    &:active {
+      color: $color-primary-blue-light;
+    }
+
+     }
+  .active{
+    color: $color-primary-blue-light;
+    }
+
+
+
+
+  &--item:not(:last-child) {
+    margin-right: 2rem;
+  }
+}
