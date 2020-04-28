@@ -1,12 +1,12 @@
 .header__menu {
-z-index: 20;
+  z-index: 20;
   position: fixed;
   right: 12rem;
   display: grid;
   height: $header-height;
   align-items: center;
 
-  @include respond(tab-port){
+  @include respond(tab-port) {
     right: 4rem;
   }
 
@@ -17,11 +17,12 @@ z-index: 20;
 
   &--link {
     color: $color-grey-light;
-    font-family: 'o', sans-serif;
+    font-family: "o", sans-serif;
     font-weight: 300;
     text-transform: uppercase;
     text-decoration: none;
     transition: 300ms;
+    font-size: 1.5rem;
 
     &:hover,
     &:active {
@@ -34,7 +35,7 @@ z-index: 20;
     &:active,
     &:focus {
       outline: none;
-      @include respond(tab-port){
+      @include respond(tab-port) {
         color: $color-primary-dark;
       }
     }
@@ -55,14 +56,10 @@ z-index: 20;
       background: $color-primary-blue-light;
       transition: 300ms;
 
-      @include respond(tab-port){
+      @include respond(tab-port) {
         background: $color-primary-dark;
       }
     }
-  }
-
-  .active{
-    color: $color-primary-blue-light;
   }
 
   &--item:not(:last-child) {
@@ -70,7 +67,7 @@ z-index: 20;
   }
 }
 
-@include respond(tab-port){
+@include respond(tab-port) {
   .header__menu {
     background-color: rgba($color-primary-blue-light, 1);
     width: 100%;
@@ -79,8 +76,7 @@ z-index: 20;
     height: 8rem;
     transition: all 1s linear;
     top: 10rem;
-    z-index:10;
-
+    z-index: 10;
     @include respond(phone) {
       width: 25rem;
       height: 70%;
@@ -93,13 +89,14 @@ z-index: 20;
       @include respond(phone) {
         flex-direction: column;
       }
+
       a {
         font-family: "Cinzel", serif;
         font-weight: 400;
         color: white;
       }
     }
-     }
+  }
 
   .hide-menu {
     top: -10rem;

@@ -1,14 +1,12 @@
 import React from "react";
-// import { PeopleList } from "../../art-components";
-// import { useHistory } from "react-router-dom";
-import Person from "../../person";
+import { PeopleList } from "../../art-components";
+import { useHistory } from "react-router-dom";
 
 const PeoplePage = () => {
-  // const history = useHistory();
+  const history = useHistory();
   return (
     <div className="people-page">
-      <Person id="22730" />
-      {/*<PeopleList onItemSelected={(id) => history.push(`${id}`)} />*/}
+      <PeopleList onItemSelected={(id) => history.push(`${id}`)} />
     </div>
   );
 };

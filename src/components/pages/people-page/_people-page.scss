@@ -1,7 +1,36 @@
 .people-page{
-  //background-image: url("../../../img/white.jpg");
   background-size: contain;
   background-position: top;
   padding-top: 5rem;
   font-family: 'Cinzel', serif;
+
+  ul{
+    align-items: baseline;
+
+    li{
+      cursor: pointer;
+      text-align: center;
+    }
+
+    h4{
+      text-transform: uppercase;
+
+      &:hover {
+        color: $color-primary-blue-light;
+      }
+
+      &:hover:after {
+        width: 100%;
+      }
+
+      &:after {
+        content: "";
+        width: 0;
+        height: 1px;
+        display: block;
+        background: $color-primary-blue-light;
+        transition: 300ms;
+      }
+    }
+  }
 }

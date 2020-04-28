@@ -12,7 +12,6 @@
   background-color: $color-white-grey;
   overflow-y: hidden;
   z-index: 20;
-
   @include respond(tab-port) {
     padding: 0 4rem 0 4rem;
 

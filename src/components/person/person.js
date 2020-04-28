@@ -4,8 +4,9 @@ import Spinner from "../spinner";
 import ErrorIndicator from "../error-indicator";
 import PersonImages from "./person-images/person-images";
 import PersonDetails from "./person-details/person-details";
+import { withRouter } from "react-router-dom";
 
-export default class Person extends Component {
+class Person extends Component {
   state = {
     data: null,
     images: null,
@@ -21,7 +22,7 @@ export default class Person extends Component {
 
   componentDidUpdate(prevProps, prevState, snapshot) {
     if (prevProps.id !== this.props.id) {
-      this.updateItem();
+      this.updatePerson();
       this.updatePersonImages();
     }
   }
@@ -71,6 +72,7 @@ export default class Person extends Component {
 
   render() {
     const { loading, error, data, images } = this.state;
+    const { history } = this.props;
 
     if (!data || !images || loading) {
       return <Spinner />;
@@ -80,13 +82,17 @@ export default class Person extends Component {
       return <ErrorIndicator />;
     }
 
-    const { onItemSelected } = this.props;
+    // const { onItemSelected } = this.props;
 
     return (
       <div className="people item container">
         <PersonDetails data={data} />
-        <PersonImages images={images} onItemSelected={onItemSelected} />
+        <PersonImages
+          images={images}
+          onItemSelected={(id) => history.push(`/work/${id}`)}
+        />
       </div>
     );
   }
 }
+export default withRouter(Person);

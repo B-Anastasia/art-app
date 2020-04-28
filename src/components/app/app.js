@@ -4,8 +4,14 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ItemDetails from "../item-details";
 import SwapiService from "../../services/swapi-service";
 import ErrorBoundry from "../error-boundry";
-import { PaintingsList } from "../art-components";
-import { MainPage, DrawingPage, PeoplePage, PhotographsPage } from "../pages";
+import {
+  MainPage,
+  DrawingPage,
+  PeoplePage,
+  PhotographsPage,
+  PaintingsPage,
+} from "../pages";
+import Person from "../person";
 
 export default class App extends Component {
   swapiService = new SwapiService();
@@ -52,15 +58,33 @@ export default class App extends Component {
                 }}
               />
 
-              <Route exact path="/paintings/">
-                <PaintingsList onItemSelected={this.onItemSelected} />
-              </Route>
+              <Route exact path="/paintings/" component={PaintingsPage} />
 
               <Route
-                exact
-                path="/people/"
-                component={PeoplePage}
-                onItemSelected={this.onItemSelected}
+                path="/paintings/:id"
+                render={({ match }) => {
+                  const { id } = match.params;
+                  return <ItemDetails itemId={id} getData={getItem} />;
+                }}
+              />
+
+              <Route exact path="/people/" component={PeoplePage} />
+
+              <Route
+                path="/people/:id"
+                render={({ match }) => {
+                  const { id } = match.params;
+                  return <Person id={id} />;
+                }}
+              />
+
+              <Route
+                path="/work/:id"
+                render={({ match }) => {
+                  console.log(match);
+                  const { id } = match.params;
+                  return <ItemDetails itemId={id} getData={getItem} />;
+                }}
               />
             </Switch>
           </div>

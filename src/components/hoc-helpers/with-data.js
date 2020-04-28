@@ -15,6 +15,7 @@ const withData = (View, getData, property) => {
       size: 9,
       totalPages: null,
       scrolling: false,
+      showBtn: true,
     };
 
     componentDidMount() {
@@ -69,6 +70,7 @@ const withData = (View, getData, property) => {
         this.loadMore();
         this.setState({
           scrolling: false,
+          showBtn: false,
         });
       }
     };
@@ -81,7 +83,7 @@ const withData = (View, getData, property) => {
     };
 
     render() {
-      const { data, loading, error } = this.state;
+      const { data, loading, error, showBtn } = this.state;
 
       if (loading || !data) {
         return <Spinner />;
@@ -89,10 +91,10 @@ const withData = (View, getData, property) => {
       if (error) {
         return <ErrorIndicator />;
       }
-
+      const btn = showBtn ? <div className="btn-blue">Load more</div> : null;
       return (
         <ErrorBoundry>
-          <View {...this.props} data={data} />
+          <View {...this.props} data={data} onLoad={this.loadMore} />`{btn}
         </ErrorBoundry>
       );
     }
