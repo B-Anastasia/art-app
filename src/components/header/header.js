@@ -8,13 +8,15 @@ const Header = () => {
     wrapper.classList.toggle("hide-menu");
   }
   return (
-    <div className="header">
-      <HeaderLogo />
-      <ToggleMenu onActive={onActive} />
+    <React.Fragment>
+      <div className="header">
+        <HeaderLogo />
+        <ToggleMenu onActive={onActive} />
+      </div>
       <div className="header__menu hide-menu" ref={wrapperRef}>
         <HeaderMenu onActive={onActive} />
       </div>
-    </div>
+    </React.Fragment>
   );
 };
 

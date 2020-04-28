@@ -2,6 +2,8 @@
   li {
     display: inline-block;
     @include respond(phone){
+      width: 40%;
+    } @include respond(phone-xs){
       width: 100%;
     }
   }
