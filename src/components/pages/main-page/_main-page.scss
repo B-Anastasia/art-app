@@ -1,41 +1,62 @@
 .main-page {
   background-image: url('../../../img/colors.jpg');
-  //background-image: linear-gradient(
-  //                to right bottom,
-  //                rgba( $color-white , 0.3),
-  //                rgba($color-primary-dark, 0.2)),
-  //                url('../../img/brushes.jpg');
   background-size: cover;
   background-position: top;
   height: 100vh;
+  overflow-y: auto;
 
   .text-box {
     padding: 1rem;
-    //background-color: rgba( $color-white , 0.3);
-    position: absolute;
+    width: 70%;
     top: 50%;
-    left: 40%;
-    transform: translate(-50%, -60%);
+    margin: 0 auto;
+    position: relative;
+    transform: translateY(-50%);
+    //position: absolute;
+    //left: 40%;
+    //transform: translate(-50%, -60%);
     color: white;
+    @include respond(tab-land){
+      width: 75%;
+    }
+
+
 
     h1 {
       margin-left: 70px;
-      //font-weight: 700;
       font-size: 4rem;
+      @include respond(tab-port){
+        font-size: 3.3rem;
+      }
+      @include respond(phone){
+        font-size: 2.9rem;
+        margin-left: 5.5rem;
+      }
+      @include respond(phone-xs){
+        font-size: 2.5rem;
+
+      }
     }
+
     .main-page__quotation--name {
       text-align: right;
       display: block;
-      //font-weight: 300;
       font-size: 2rem;
+      @include respond(phone){
+       padding-top: 1rem;
+      }
     }
+
     .main-page__quotation {
-      h1,
-      span {
+
+      h1, span {
         font-family: 'Cinzel', serif;
         text-transform: lowercase;
         font-weight: 300;
         line-height: 1.2;
+        @include respond(phone){
+          line-height: normal;
+        }
       }
     }
 
@@ -45,6 +66,13 @@
       font-size: 20rem;
       line-height: 0.7;
       opacity: 0.5;
+
+      @include respond(tab-port){
+        font-size: 16rem;
+      }
+      @include respond(phone-xs){
+        font-size: 12rem;
+      }
     }
   }
 }
