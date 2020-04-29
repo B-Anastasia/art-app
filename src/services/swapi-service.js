@@ -1,6 +1,7 @@
 export default class SwapiService {
   _apiBase = "https://api.harvardartmuseums.org/";
   _apiKEY = "&apikey=65582c50-731b-11ea-ba77-8b81ecbc6885";
+
   // _apiKEY = "apikey=67d9edc0-e6a3-11e3-9798-57275476509a";
 
   async getResource(url) {
@@ -20,12 +21,13 @@ export default class SwapiService {
 
   getAllItems = async (classification, from, size, page) => {
     const res = await this.getResource(
-      `object?classification=${classification}&sort=rank&sortorder=asc&hasimage=1&fields=images,title,objectid,dated,people&from=${from}&size=${size}&page=${page}`
-      // `object?classification=Drawings&sort=rank&sortorder=asc&from=78&size=30&page=5`
+      `object?classification=${classification}&sort=rank&sortorder=asc&hasimage=1&q=verificationlevel:4&fields=images,title,objectid,dated,people&from=${from}&size=${size}&page=${page}`
     );
-    return res.records
+    const records = res.info.pages;
+    const data = res.records
       .filter((el) => el.imagepermissionlevel === 0)
       .map(this._transformItem);
+    return [records, data];
   };
 
   getPersonItems = async (personId) => {
@@ -35,22 +37,18 @@ export default class SwapiService {
     return res.records.map(this._transformPersonItem);
   };
 
-  getAllPeople = async () => {
+  getAllPeople = async (classification, from, size, page) => {
     const res = await this.getResource(
-      "object?classification=Drawings|Paintings|Photographs&q=totalpageviews:150"
+      `object?classification=${classification}&fields=people&q=totalpageviews:150&from=${from}&size=${size}&page=${page}`
     );
-    const resArr2 = res.records.map((item) => {
-      return item["people"];
-    });
+    const result = res.info.pages;
+    console.log(result);
+    const resArr2 = res.records
+      .map((item) => item["people"][0])
+      .filter((el) => el.role === "Artist")
+      .map(this._transformPerson);
 
-    const resArr3 = resArr2.map((item) => {
-      for (let i = 0; i < item.length; i++) {
-        if (item[i].role === "Artist") {
-          return item[i];
-        }
-      }
-    });
-    return resArr3.map(this._transformPerson);
+    return [result, resArr2];
   };
 
   getPerson = async (personId) => {

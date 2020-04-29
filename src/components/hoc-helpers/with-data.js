@@ -16,6 +16,7 @@ const withData = (View, getData, property) => {
       totalPages: null,
       scrolling: false,
       showBtn: true,
+      pages: null,
     };
 
     componentDidMount() {
@@ -24,7 +25,9 @@ const withData = (View, getData, property) => {
       //on scroll loading more items
       window.onscroll = () => {
         if (this.state.scrolling) {
-          this.handleScroll();
+          if (this.state.page <= this.state.pages) {
+            this.handleScroll();
+          }
         }
       };
     }
@@ -34,10 +37,11 @@ const withData = (View, getData, property) => {
       getData(property, from, size, page)
         .then((res) => {
           this.setState({
-            data: [...data, ...res],
+            data: [...data, ...res[1]],
             loading: false,
             error: false,
             scrolling: true,
+            pages: res[0],
           });
         })
         .catch(this.onError);
@@ -83,7 +87,7 @@ const withData = (View, getData, property) => {
     };
 
     render() {
-      const { data, loading, error, showBtn } = this.state;
+      const { data, loading, error, showBtn } = this.bind(this.state);
 
       if (loading || !data) {
         return <Spinner />;

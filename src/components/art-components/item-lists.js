@@ -50,7 +50,8 @@ const PhotographsList = withData(
 );
 const PeopleList = withData(
   withChildFunction(ItemList, renderListPeople),
-  getAllPeople
+  getAllPeople,
+  "Drawings|Paintings|Photographs"
 );
 
 export { DrawingsList, PaintingsList, PeopleList, PhotographsList };
