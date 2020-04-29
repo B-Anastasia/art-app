@@ -39,7 +39,7 @@ export default class SwapiService {
 
   getAllPeople = async (classification, from, size, page) => {
     const res = await this.getResource(
-      `object?classification=${classification}&fields=people&q=totalpageviews:150&from=${from}&size=${size}&page=${page}`
+      `object?classification=${classification}&fields=people&q=totalpageviews:130&from=${from}&size=${size}&page=${page}`
     );
     const result = res.info.pages;
     console.log(result);

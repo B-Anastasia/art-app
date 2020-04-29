@@ -87,7 +87,7 @@ const withData = (View, getData, property) => {
     };
 
     render() {
-      const { data, loading, error, showBtn } = this.bind(this.state);
+      const { data, loading, error, showBtn } = this.state;
 
       if (loading || !data) {
         return <Spinner />;
@@ -95,10 +95,15 @@ const withData = (View, getData, property) => {
       if (error) {
         return <ErrorIndicator />;
       }
-      const btn = showBtn ? <div className="btn-blue">Load more</div> : null;
+      const btn = showBtn ? (
+        <div className="btn-blue" onClick={() => this.loadMore()}>
+          Load more
+        </div>
+      ) : null;
       return (
         <ErrorBoundry>
-          <View {...this.props} data={data} onLoad={this.loadMore} />`{btn}
+          <View {...this.props} data={data} />
+          {btn}
         </ErrorBoundry>
       );
     }
