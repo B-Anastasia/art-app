@@ -1,9 +1,6 @@
 import React from "react";
-import SwapiService from "../../services/swapi-service";
-import { withData, withChildFunction } from "../hoc-helpers";
+import { withData, withChildFunction, withSwapiService } from "../hoc-helpers";
 import ItemList from "../item-list";
-
-const { getAllItems, getAllPeople } = new SwapiService();
 
 // const withChildFunction = (Wrapped, fn) => {
 //   return (props) => {
@@ -33,25 +30,37 @@ const renderListPeople = ({ name, culture, displayDate }) => (
   </div>
 );
 
-const DrawingsList = withData(
-  withChildFunction(ItemList, renderListItems),
-  getAllItems,
-  "Drawings"
+const mapDrawingsMethodsToProps = (swapiservice) => {
+  return { getData: swapiservice.getAllItems, property: "Drawings" };
+};
+const mapPaintingsMethodsToProps = (swapiservice) => {
+  return { getData: swapiservice.getAllItems, property: "Paintings" };
+};
+const mapPhotographsMethodsToProps = (swapiservice) => {
+  return { getData: swapiservice.getAllItems, property: "Photographs" };
+};
+const mapPeopleMethodsToProps = (swapiservice) => {
+  return {
+    getData: swapiservice.getAllPeople,
+    property: "Drawings|Paintings|Photographs",
+  };
+};
+
+const DrawingsList = withSwapiService(
+  withData(withChildFunction(ItemList, renderListItems)),
+  mapDrawingsMethodsToProps
 );
-const PaintingsList = withData(
-  withChildFunction(ItemList, renderListItems),
-  getAllItems,
-  "Paintings"
+const PaintingsList = withSwapiService(
+  withData(withChildFunction(ItemList, renderListItems)),
+  mapPaintingsMethodsToProps
 );
-const PhotographsList = withData(
-  withChildFunction(ItemList, renderListItems),
-  getAllItems,
-  "Photographs"
+const PhotographsList = withSwapiService(
+  withData(withChildFunction(ItemList, renderListItems)),
+  mapPhotographsMethodsToProps
 );
-const PeopleList = withData(
-  withChildFunction(ItemList, renderListPeople),
-  getAllPeople,
-  "Drawings|Paintings|Photographs"
+const PeopleList = withSwapiService(
+  withData(withChildFunction(ItemList, renderListPeople)),
+  mapPeopleMethodsToProps
 );
 
 export { DrawingsList, PaintingsList, PeopleList, PhotographsList };

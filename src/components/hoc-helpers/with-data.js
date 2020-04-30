@@ -3,7 +3,7 @@ import Spinner from "../spinner";
 import ErrorIndicator from "../error-indicator";
 import ErrorBoundry from "../error-boundry";
 
-const withData = (View, getData, property) => {
+const withData = (View) => {
   return class extends Component {
     //created new class without name => returned new Component with method render()
     state = {
@@ -34,7 +34,8 @@ const withData = (View, getData, property) => {
 
     updateList = () => {
       const { from, size, page, data } = this.state;
-      getData(property, from, size, page)
+      this.props
+        .getData(this.props.property, from, size, page)
         .then((res) => {
           this.setState({
             data: [...data, ...res[1]],

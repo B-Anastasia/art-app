@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Header from "../header";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ItemDetails from "../item-details";
+import { SwapiServiceProvider } from "../swapi-service-context";
 import SwapiService from "../../services/swapi-service";
 import ErrorBoundry from "../error-boundry";
 import {
@@ -16,79 +17,70 @@ import Person from "../person";
 export default class App extends Component {
   swapiService = new SwapiService();
 
-  // state = {
-  //   itemId: 296421,
-  // };
-  //
-  // onItemSelected = (itemId) => {
-  //   console.log(itemId);
-  //   this.setState({
-  //     itemId: itemId,
-  //   });
-  // };
-
   render() {
     const { getItem } = this.swapiService;
     return (
       <ErrorBoundry>
-        <Router>
-          <div>
-            <Header />
-            <Switch>
-              <Route exact path="/" component={MainPage} />
+        <SwapiServiceProvider value={this.swapiService}>
+          <Router>
+            <div>
+              <Header />
+              <Switch>
+                <Route exact path="/" component={MainPage} />
 
-              <Route exact path="/drawings/" component={DrawingPage} />
-              {/*<DrawingsList onItemSelected={this.onItemSelected} />*/}
+                <Route exact path="/drawings/" component={DrawingPage} />
+                {/*<DrawingsList onItemSelected={this.onItemSelected} />*/}
 
-              <Route
-                path="/drawings/:id"
-                render={({ match }) => {
-                  const { id } = match.params;
-                  return <ItemDetails itemId={id} getData={getItem} />;
-                }}
-              />
+                <Route
+                  path="/drawings/:id"
+                  render={({ match }) => {
+                    const { id } = match.params;
+                    return <ItemDetails itemId={id} getData={getItem} />;
+                  }}
+                />
 
-              <Route exact path="/photographs/" component={PhotographsPage} />
+                <Route exact path="/photographs/" component={PhotographsPage} />
 
-              <Route
-                path="/photographs/:id"
-                render={({ match }) => {
-                  const { id } = match.params;
-                  return <ItemDetails itemId={id} getData={getItem} />;
-                }}
-              />
+                <Route
+                  path="/photographs/:id"
+                  render={({ match }) => {
+                    const { id } = match.params;
+                    return <ItemDetails itemId={id} getData={getItem} />;
+                  }}
+                />
 
-              <Route exact path="/paintings/" component={PaintingsPage} />
+                <Route exact path="/paintings/" component={PaintingsPage} />
 
-              <Route
-                path="/paintings/:id"
-                render={({ match }) => {
-                  const { id } = match.params;
-                  return <ItemDetails itemId={id} getData={getItem} />;
-                }}
-              />
+                <Route
+                  path="/paintings/:id"
+                  render={({ match }) => {
+                    const { id } = match.params;
+                    return <ItemDetails itemId={id} getData={getItem} />;
+                  }}
+                />
 
-              <Route exact path="/people/" component={PeoplePage} />
+                <Route exact path="/people/" component={PeoplePage} />
 
-              <Route
-                path="/people/:id"
-                render={({ match }) => {
-                  const { id } = match.params;
-                  return <Person id={id} />;
-                }}
-              />
+                <Route
+                  path="/people/:id"
+                  render={({ match }) => {
+                    const { id } = match.params;
+                    return <Person id={id} />;
+                  }}
+                />
 
-              <Route
-                path="/work/:id"
-                render={({ match }) => {
-                  console.log(match);
-                  const { id } = match.params;
-                  return <ItemDetails itemId={id} getData={getItem} />;
-                }}
-              />
-            </Switch>
-          </div>
-        </Router>
+                <Route
+                  path="/work/:id"
+                  render={({ match }) => {
+                    console.log(match);
+                    const { id } = match.params;
+                    return <ItemDetails itemId={id} getData={getItem} />;
+                  }}
+                />
+              </Switch>
+            </div>
+          </Router>
+        </SwapiServiceProvider>
       </ErrorBoundry>
     );
   }
