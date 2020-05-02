@@ -19,36 +19,43 @@ export default class SwapiService {
     return this._transformItem(res);
   };
 
-  getAllItems = async (classification, from, size, page) => {
+  getAllItems = async (from, size, page, classification) => {
     const res = await this.getResource(
       `object?classification=${classification}&sort=rank&sortorder=asc&hasimage=1&q=verificationlevel:4&fields=images,title,objectid,dated,people&from=${from}&size=${size}&page=${page}`
     );
-    const records = res.info.pages;
+    const items = res.info.totalrecords;
+    const pages = res.info.pages;
     const data = res.records
       .filter((el) => el.imagepermissionlevel === 0)
       .map(this._transformItem);
-    return [records, data];
+    return [pages, data, items];
+  };
+
+  getAllPeople = async (from, size, page) => {
+    const res = await this.getResource(
+      `person?sort=displaydate:"random"&hasimage=1&from=${from}&size=${size}&page=${page}`
+      // `object?classification=${classification}&fields=people&person=${a}&q=totalpageviews:130&from=${from}&size=${size}&page=${page}`
+    );
+    const items = res.info.totalrecords;
+    console.log(items);
+    const result = res.info.pages;
+    console.log(result);
+    // const resArr2 = res.records
+    //   .map((item) => item["people"][0])
+    //   .filter((el) => el.role === "Artist")
+    //   .map(this._transformPerson);
+    const resArr2 = res.records.map(this._transformPerson);
+    console.log(resArr2);
+    return [result, resArr2, items];
   };
 
   getPersonItems = async (personId) => {
     const res = await this.getResource(
-      `object?person=${personId}&fields=images,objectid,title&hasimage=1`
+      `object?person=${personId}&hasimage=1&fields=images,title,objectid,dated`
     );
-    return res.records.map(this._transformPersonItem);
-  };
-
-  getAllPeople = async (classification, from, size, page) => {
-    const res = await this.getResource(
-      `object?classification=${classification}&fields=people&q=totalpageviews:130&from=${from}&size=${size}&page=${page}`
-    );
-    const result = res.info.pages;
-    console.log(result);
-    const resArr2 = res.records
-      .map((item) => item["people"][0])
-      .filter((el) => el.role === "Artist")
-      .map(this._transformPerson);
-
-    return [result, resArr2];
+    return res.records
+      .filter((el) => el.images[0])
+      .map(this._transformPersonItem);
   };
 
   getPerson = async (personId) => {
@@ -72,7 +79,7 @@ export default class SwapiService {
     return {
       id: item.objectid,
       title: item.title,
-      imageUrl: item.images[0].baseimageurl,
+      imageUrl: item.images ? item.images[0].baseimageurl : null,
       date: item.dated,
     };
   };

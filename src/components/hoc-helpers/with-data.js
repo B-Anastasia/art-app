@@ -13,51 +13,60 @@ const withData = (View) => {
       from: 0,
       page: 1,
       size: 9,
-      totalPages: null,
       scrolling: false,
-      showBtn: true,
       pages: null,
+      records: null,
+      showBtn: true,
     };
 
-    componentDidMount() {
+    componentDidMount = () => {
       this.updateList();
 
       //on scroll loading more items
       window.onscroll = () => {
         if (this.state.scrolling) {
-          if (this.state.page <= this.state.pages) {
-            this.handleScroll();
-          }
+          this.handleScroll();
         }
       };
-    }
+    };
 
     updateList = () => {
+      console.log("update");
       const { from, size, page, data } = this.state;
       this.props
-        .getData(this.props.property, from, size, page)
+        .getData(from, size, page, this.props.property)
         .then((res) => {
           this.setState({
             data: [...data, ...res[1]],
             loading: false,
-            error: false,
             scrolling: true,
+            error: false,
             pages: res[0],
+            records: res[2],
           });
         })
         .catch(this.onError);
     };
 
     loadMore = () => {
-      this.setState(
-        (prevState) => ({
+      console.log("load");
+      const { page, pages } = this.state;
+
+      if (page < pages) {
+        this.setState((prevState) => ({
           page: prevState.page + 1,
           from: prevState.from + 9,
-          // scrolling: true,
           loading: false,
-        }),
-        this.updateList
-      );
+          showBtn: false,
+        }));
+        this.updateList();
+      }
+      if (page === pages) {
+        this.setState({
+          scrolling: false,
+          showBtn: false,
+        });
+      }
     };
 
     handleScroll = () => {
@@ -75,7 +84,6 @@ const withData = (View) => {
         this.loadMore();
         this.setState({
           scrolling: false,
-          showBtn: false,
         });
       }
     };
@@ -101,6 +109,7 @@ const withData = (View) => {
           Load more
         </div>
       ) : null;
+
       return (
         <ErrorBoundry>
           <View {...this.props} data={data} />

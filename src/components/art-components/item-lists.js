@@ -42,7 +42,7 @@ const mapPhotographsMethodsToProps = (swapiservice) => {
 const mapPeopleMethodsToProps = (swapiservice) => {
   return {
     getData: swapiservice.getAllPeople,
-    property: "Drawings|Paintings|Photographs",
+    // property: "Drawings|Paintings|Photographs",
   };
 };
 

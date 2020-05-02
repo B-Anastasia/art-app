@@ -27,13 +27,6 @@ class Person extends Component {
     }
   }
 
-  onError() {
-    this.setState({
-      error: true,
-      loading: false,
-    });
-  }
-
   updatePerson() {
     const { id } = this.props;
     this.setState({
@@ -53,6 +46,7 @@ class Person extends Component {
   }
 
   updatePersonImages() {
+    console.log("fun");
     const { id } = this.props;
     this.setState({
       loading: true,
@@ -69,28 +63,36 @@ class Person extends Component {
       })
       .catch(this.onError);
   }
-
+  onError() {
+    this.setState({
+      error: true,
+      loading: false,
+    });
+  }
   render() {
     const { loading, error, data, images } = this.state;
     const { history } = this.props;
 
-    if (!data || !images || loading) {
+    if (loading) {
       return <Spinner />;
     }
-
     if (error) {
       return <ErrorIndicator />;
     }
-
-    // const { onItemSelected } = this.props;
+    const showDetails = !data ? <Spinner /> : <PersonDetails data={data} />;
+    const showImages = !images ? (
+      <Spinner />
+    ) : (
+      <PersonImages
+        images={images}
+        onItemSelected={(id) => history.push(`/work/${id}`)}
+      />
+    );
 
     return (
       <div className="people item container">
-        <PersonDetails data={data} />
-        <PersonImages
-          images={images}
-          onItemSelected={(id) => history.push(`/work/${id}`)}
-        />
+        {showDetails}
+        {showImages}
       </div>
     );
   }
