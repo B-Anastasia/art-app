@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const HeaderMenu = ({ onActive }) => {
   const arr = ["Main", "Drawings", "Paintings", "Photographs", "People"];
@@ -32,6 +33,10 @@ const HeaderMenu = ({ onActive }) => {
     );
   });
   return <ul className="header__menu--list">{items}</ul>;
+};
+
+HeaderMenu.propTypes = {
+  onActive: PropTypes.func.isRequired,
 };
 
 export default HeaderMenu;

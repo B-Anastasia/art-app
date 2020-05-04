@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const ToggleMenu = ({ onActive }) => {
   return (
@@ -8,6 +9,10 @@ const ToggleMenu = ({ onActive }) => {
       <div className="toggle-menu__line" />
     </div>
   );
+};
+
+ToggleMenu.propTypes = {
+  onActive: PropTypes.func.isRequired,
 };
 
 export default ToggleMenu;

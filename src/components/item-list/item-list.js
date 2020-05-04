@@ -1,6 +1,7 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-function ItemList(props) {
+const ItemList = (props) => {
   const { data, onItemSelected, children: renderFunction } = props;
 
   const items = data.map((item) => {
@@ -23,6 +24,12 @@ function ItemList(props) {
       <ul>{items}</ul>
     </div>
   );
-}
+};
+
+ItemList.propTypes = {
+  onItemSelected: PropTypes.func.isRequired,
+  data: PropTypes.arrayOf(PropTypes.object).isRequired,
+  children: PropTypes.func.isRequired,
+};
 
 export default ItemList;

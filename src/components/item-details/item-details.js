@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Spinner from "../spinner";
 import ErrorIndicator from "../error-indicator";
 import Details from "../details";
+import PropTypes from "prop-types";
 
 export default class ItemDetails extends Component {
   state = {
@@ -10,6 +11,10 @@ export default class ItemDetails extends Component {
     error: false,
   };
 
+  static propTypes = {
+    itemId: PropTypes.string.isRequired,
+    getData: PropTypes.func.isRequired,
+  };
   componentDidMount() {
     this.updateItem();
   }

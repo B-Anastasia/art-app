@@ -5,4 +5,5 @@ const withChildFunction = (Wrapped, fn) => {
     return <Wrapped {...props}>{fn}</Wrapped>;
   };
 };
+
 export default withChildFunction;

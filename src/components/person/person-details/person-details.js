@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const PersonDetails = ({ data }) => {
   const { name, gender, culture, birthPlace, deathPlace, displayDate } = data;
@@ -21,5 +22,8 @@ const PersonDetails = ({ data }) => {
       </dl>
     </div>
   );
+};
+PersonDetails.propTypes = {
+  data: PropTypes.object.isRequired,
 };
 export default PersonDetails;

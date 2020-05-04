@@ -1,4 +1,6 @@
 import React from "react";
+import PropTypes from "prop-types";
+
 const PersonImages = ({ images, onItemSelected }) => {
   const items = images.map((el) => {
     const { id } = el;
@@ -25,5 +27,10 @@ const PersonImages = ({ images, onItemSelected }) => {
       <ul>{items}</ul>
     </div>
   );
+};
+
+PersonImages.propTypes = {
+  images: PropTypes.arrayOf(PropTypes.object).isRequired,
+  onItemSelected: PropTypes.func.isRequired,
 };
 export default PersonImages;

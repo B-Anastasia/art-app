@@ -4,6 +4,7 @@ import Spinner from "../spinner";
 import ErrorIndicator from "../error-indicator";
 import PersonImages from "./person-images/person-images";
 import PersonDetails from "./person-details/person-details";
+import PropTypes from "prop-types";
 import { withRouter } from "react-router-dom";
 
 class Person extends Component {
@@ -13,6 +14,11 @@ class Person extends Component {
     error: false,
     loading: true,
   };
+
+  static propTypes = {
+    id: PropTypes.string.isRequired,
+  };
+
   swapiService = new SwapiService();
 
   componentDidMount() {
@@ -97,4 +103,5 @@ class Person extends Component {
     );
   }
 }
+
 export default withRouter(Person);

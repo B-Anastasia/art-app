@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const Details = ({ data }) => {
   const {
@@ -73,6 +74,10 @@ const Details = ({ data }) => {
       </dl>
     </div>
   );
+};
+
+Details.propTypes = {
+  data: PropTypes.object.isRequired,
 };
 
 export default Details;
