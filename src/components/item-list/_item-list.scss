@@ -1,9 +1,9 @@
 .item-list {
   li {
     display: inline-block;
-    @include respond(phone){
+    @include respond(tab-port){
       width: 40%;
-    } @include respond(phone-xs){
+    } @include respond(phone){
       width: 100%;
     }
   }
@@ -30,7 +30,8 @@
       padding-left: 1rem;
       padding-top: 1rem;
       width: 100%;
-      font-size: 1.6rem;
+      font-size: 1.6rem;text-align: center;
+      h4{text-align: center}
       span {
         display: block;
         font-family: "o", sans-serif;

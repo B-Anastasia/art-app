@@ -11,7 +11,7 @@ import ItemList from "../item-list";
 const renderListItems = ({ title, name, date, imageUrl }) => (
   <React.Fragment>
     <figure className="item-list__item--image">
-      <img src={imageUrl[0] + `?width=280`} alt="art" />
+      <img src={imageUrl[0] + `?width=400`} alt="art" />
     </figure>
     <div className="item-list__item--title">
       <h4>&#x201C; {title} &#x201D;</h4>

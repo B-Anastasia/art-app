@@ -24,6 +24,7 @@
     transition: 300ms;
     font-size: 1.5rem;
 
+
     &:hover,
     &:active {
       color: $color-primary-blue-light;
@@ -78,7 +79,7 @@
     top: 10rem;
     z-index: 10;
     @include respond(phone) {
-      width: 25rem;
+      width: 30rem;
       height: 70%;
     }
 
@@ -91,9 +92,13 @@
       }
 
       a {
-        font-family: "Cinzel", serif;
-        font-weight: 400;
         color: white;
+        @include respond(tab-land){
+        font-size: 2rem;
+        }
+        @include respond(phone){
+        font-size: 2.5rem;
+        }
       }
     }
   }

@@ -14,6 +14,9 @@
     background-color: $color-primary-blue-light;
     padding: 3px;
     color: white;
+    @include respond(tab-land){
+    font-size: 2.3rem;
+    }
   }
 
   .secondary {
@@ -22,5 +25,8 @@
     font-size: 1.6rem;
     margin-top: 1rem;
     font-weight: 400;
+    @include respond(tab-land){
+      font-size: 1.8rem;
+    }
   }
 }
