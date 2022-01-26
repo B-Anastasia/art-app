@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/art-app/static/css/main.c797c4dc.chunk.css",
-    "main.js": "/art-app/static/js/main.ef9108d4.chunk.js",
-    "main.js.map": "/art-app/static/js/main.ef9108d4.chunk.js.map",
+    "main.js": "/art-app/static/js/main.76f19457.chunk.js",
+    "main.js.map": "/art-app/static/js/main.76f19457.chunk.js.map",
     "runtime-main.js": "/art-app/static/js/runtime-main.721c031c.js",
     "runtime-main.js.map": "/art-app/static/js/runtime-main.721c031c.js.map",
-    "static/js/2.9e44c8ad.chunk.js": "/art-app/static/js/2.9e44c8ad.chunk.js",
-    "static/js/2.9e44c8ad.chunk.js.map": "/art-app/static/js/2.9e44c8ad.chunk.js.map",
+    "static/js/2.a5c912c2.chunk.js": "/art-app/static/js/2.a5c912c2.chunk.js",
+    "static/js/2.a5c912c2.chunk.js.map": "/art-app/static/js/2.a5c912c2.chunk.js.map",
     "index.html": "/art-app/index.html",
-    "precache-manifest.e43743725768fa5d3d182c0164deeb89.js": "/art-app/precache-manifest.e43743725768fa5d3d182c0164deeb89.js",
+    "precache-manifest.260a08a84494e5fb944dd4f2ed0160de.js": "/art-app/precache-manifest.260a08a84494e5fb944dd4f2ed0160de.js",
     "service-worker.js": "/art-app/service-worker.js",
     "static/css/main.c797c4dc.chunk.css.map": "/art-app/static/css/main.c797c4dc.chunk.css.map",
-    "static/js/2.9e44c8ad.chunk.js.LICENSE.txt": "/art-app/static/js/2.9e44c8ad.chunk.js.LICENSE.txt",
+    "static/js/2.a5c912c2.chunk.js.LICENSE.txt": "/art-app/static/js/2.a5c912c2.chunk.js.LICENSE.txt",
     "static/media/main.scss": "/art-app/static/media/o Light.f96abc9c.ttf"
   },
   "entrypoints": [
     "static/js/runtime-main.721c031c.js",
-    "static/js/2.9e44c8ad.chunk.js",
+    "static/js/2.a5c912c2.chunk.js",
     "static/css/main.c797c4dc.chunk.css",
-    "static/js/main.ef9108d4.chunk.js"
+    "static/js/main.76f19457.chunk.js"
   ]
 }
