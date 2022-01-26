@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Header from "../header";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import ItemDetails from "../item-details";
 import { SwapiServiceProvider } from "../swapi-service-context";
 import SwapiService from "../../services/swapi-service";
